@@ -1,3 +1,6 @@
+require './lib/constants'
+require './lib/position'
+
 class Board
   include Constants
   include BoxBuilders
@@ -68,7 +71,6 @@ class Board
 
       position.fill(symbol)
       return @last_position = position
-      # return coordinates
     end
     wrong_input
   end

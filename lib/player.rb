@@ -1,3 +1,5 @@
+require './lib/constants'
+
 class Player
   attr_reader :name, :symbol, :color
 

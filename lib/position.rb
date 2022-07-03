@@ -1,3 +1,5 @@
+require './lib/constants'
+
 class Position
   include Symbols
 
