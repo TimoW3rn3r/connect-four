@@ -2,10 +2,13 @@ require './lib/connect_four'
 
 board = Board.new
 board.create_positions
-15.times do 
-  position = board.positions.sample
+25.times do 
+  column = rand(7) + 1
   symbol = ['@'.red, 'X'.green].sample
-  position.fill(symbol)
+  board.drop(symbol, column)
 end
 
-board.draw
+# board.draw
+
+game = Game.new
+game.start

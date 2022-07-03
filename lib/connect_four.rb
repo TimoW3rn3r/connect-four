@@ -1,134 +1,96 @@
-module Constants
-  ROWS = 8
-  COLUMNS = 8
-end
+require './lib/constants'
+require './lib/position'
+require './lib/board'
+require './lib/player'
 
-module BoxBuilders
-  BOX_VERTICAL = "\u2551".freeze
-  BOX_HORIZONTAL = "\u2550".freeze
-  BOX_BOTTOM_LEFT = "\u255a".freeze
-  BOX_BOTTOM_RIGHT = "\u255d".freeze
-  BOX_T_UP = "\u2569".freeze
-end
-
-class String
-  def colorize(color_code)
-    "\e[#{color_code}m#{self}\e[0m".freeze
-  end
-
-  def red
-    colorize(31)
-  end
-
-  def green
-    colorize(32)
-  end
-
-  def yellow
-    colorize(33)
-  end
-
-  def blue
-    colorize(34)
-  end
-end
-
-module Symbols
-  EMPTY = "\u25ef".freeze
-  WHITE = "\u2b24".freeze
-  RED = WHITE.red
-  GREEN = WHITE.green
-  YELLOW = WHITE.yellow
-  BLUE = WHITE.blue
-end
-
-class Position
-  include Symbols
-
-  attr_reader :value, :coordinates
-
-  def initialize(coordinates)
-    @value = EMPTY
-    @coordinates = coordinates
-  end
-
-  def fill(symbol)
-    @value = symbol
-  end
-
-  def empty?
-    value == EMPTY
-  end
-
-  def to_s
-    value
-  end
-end
-
-class Board
+class Game
   include Constants
-  include BoxBuilders
 
-  attr_reader :positions, :rows, :columns
+  attr_reader :board, :players, :current_player
 
-  def initialize(rows = ROWS, columns = COLUMNS)
-    @rows = rows
-    @columns = columns
-    @positions = []
+  def initialize
+    @board = Board.new
+    @players = []
+    @current_player = nil
   end
 
-  def create_positions
-    1.upto(rows) do |row|
-      1.upto(columns) do |column|
-        coordinate = [row, column]
-        position = Position.new(coordinate)
-        positions.push(position)
+  def add_player(name, symbol, color)
+    players.push(Player.new(name, symbol, color))
+  end
+
+  def set_current_player(player)
+    @current_player = player
+  end
+
+  def add_players
+    2.times do |i|
+      puts "Player##{i + 1}"
+      print "\tEnter player name>> "
+      name = gets.chomp
+      print "\tEnter player symbol>> "
+      symbol = gets[0]
+      print "\tColors available: red, green, blue, yellow\n"
+      print "\tEnter symbol color>> "
+      color = gets.chomp
+      add_player(name, symbol, color)
+    end
+    set_current_player(players.sample)
+  end
+
+  def toggle_player_turn
+    if current_player == players[0]
+      set_current_player(players[1])
+    else
+      set_current_player(players[0])
+    end
+  end
+
+  def declare_winner(symbol)
+    players.each do |player|
+      next unless player.colored_symbol == symbol
+
+      puts "#{player.name} WINS!"
+      break
+    end
+  end
+
+  def check_neighbor(position, direction)
+    next_coordinates = position.coordinates.zip(direction).map(&:sum)
+    next_position = board.fetch(next_coordinates)
+    return 0 if next_position.nil?
+    return 0 if position.value != next_position.value
+
+    1 + check_neighbor(next_position, direction)
+  end
+
+  def game_over?
+    last_position = board.last_position
+    DIRECTIONS.each do |_key, value|
+      forward, backward = value
+      connected = check_neighbor(last_position, forward) +
+                  1 +
+                  check_neighbor(last_position, backward)
+      if connected >= 4
+        declare_winner(last_position.value)
+        return true
       end
     end
-  end
-
-  def fetch(coordinates)
-    positions.each do |position|
-      return position if position.coordinates == coordinates
-    end
-    nil
-  end
-
-  def draw_row(row)
-    print BOX_VERTICAL
-    1.upto(columns) do |column|
-      coordinates = [row, column]
-      print " #{fetch(coordinates)} #{BOX_VERTICAL}"
-    end
-    print "\n"
-  end
-
-  def draw_box_bottom
-    print BOX_BOTTOM_LEFT
-    1.upto(columns - 1) do
-      print BOX_HORIZONTAL * 3
-      print BOX_T_UP
-    end
-    print BOX_HORIZONTAL * 3
-    puts BOX_BOTTOM_RIGHT
-  end
-
-  def draw
-    1.upto(rows) do |row|
-      draw_row(row)
-    end
-    draw_box_bottom
-  end
-
-  def drop(symbol, column)
-    rows.downto(1) do |row|
-      coordinates = [row, column]
-      position = fetch(coordinates)
-      next unless position.empty?
-
-      position.fill(symbol)
-      return position.coordinates
-    end
     false
+  end
+
+  def start
+    board.create_positions
+    add_players
+    board.draw
+
+    loop do
+      print "\n[#{current_player.name}] Enter the column>> "
+      column = gets.chomp.to_i
+      next unless board.drop(current_player.colored_symbol, column)
+
+      toggle_player_turn
+      board.draw
+      break if game_over?
+    end
   end
 end
