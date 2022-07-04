@@ -6,12 +6,14 @@ class Board
   include BoxBuilders
 
   attr_reader :positions, :rows, :columns, :last_position
+  attr_accessor :current_column, :next_symbol
 
   def initialize(rows = ROWS, columns = COLUMNS)
     @rows = rows
     @columns = columns
     @positions = []
     @last_position = nil
+    @current_column = 1
   end
 
   def create_positions
@@ -31,12 +33,39 @@ class Board
     nil
   end
 
+  def change_column(value)
+    @current_column = 1 + (columns + current_column + value - 1) % columns
+  end
+
+  def show_falling_symbol
+    print '  '
+    1.upto(columns) do |column|
+      if column == current_column
+        print "#{next_symbol}\n"
+        break
+      else
+        print ' ' * 4
+      end
+    end
+  end
+
   def draw_row(row)
     print BOX_VERTICAL
     1.upto(columns) do |column|
       coordinates = [column, row]
-      print " #{fetch(coordinates)} #{BOX_VERTICAL}"
+      print " #{fetch(coordinates).value} #{BOX_VERTICAL}"
     end
+    print "\n"
+  end
+
+  def draw_box_top
+    print BOX_TOP_LEFT
+    1.upto(columns - 1) do
+      print ' ' * 3
+      print BOX_T_DOWN
+    end
+    print ' ' * 3
+    print BOX_TOP_RIGHT
     print "\n"
   end
 
@@ -51,6 +80,8 @@ class Board
   end
 
   def draw
+    show_falling_symbol
+    draw_box_top
     1.upto(rows) do |row|
       draw_row(row)
     end
@@ -62,9 +93,9 @@ class Board
     false
   end
 
-  def drop(symbol, column)
+  def drop(symbol)
     rows.downto(1) do |row|
-      coordinates = [column, row]
+      coordinates = [current_column, row]
       position = fetch(coordinates)
       return wrong_input if position.nil?
       next unless position.empty?
@@ -73,5 +104,9 @@ class Board
       return @last_position = position
     end
     wrong_input
+  end
+
+  def reset
+    @positions = []
   end
 end

@@ -17,8 +17,4 @@ class Position
   def empty?
     value == EMPTY
   end
-
-  def to_s
-    value
-  end
 end
