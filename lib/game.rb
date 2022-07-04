@@ -1,12 +1,12 @@
-# require './lib/constants'
-# require './lib/position'
 require './lib/board'
 require './lib/player'
+require './lib/save'
 require 'io/console'
 
 class Game
   include Constants
   include Symbols
+  include Save
 
   attr_reader :board, :players, :current_player
 
@@ -69,8 +69,9 @@ class Game
     players.each do |player|
       next unless player.colored_symbol == symbol
 
-      puts "#{player.name} WINS!"
       player.score += 1
+      display
+      puts "#{player.name} WINS!"
       break
     end
   end
@@ -102,45 +103,56 @@ class Game
   def handle_input
     loop do
       case $stdin.getch
-      when "\r" then break
+      when "\r"
+        return true
       when '['
         case $stdin.getch
         when 'D' then board.change_column(-1)
         when 'C' then board.change_column(1)
         end
+        display
       when '/'
         case $stdin.getch
         when 'q' then exit
-        when 's' then save
+        when 's'
+          save_game
+          return false
         end
       end
-      display
+      # display
     end
   end
 
-  def play_round
+  def game_setup
     board.create_positions
-    add_players if players.empty?
-    display
+    add_players
+  end
+
+  def reset
+    board.reset
+    board.create_positions
+  end
+
+  def play_round
+    game_setup if players.empty?
 
     loop do
-      handle_input
+      display
+      next unless handle_input
       next unless board.drop(current_player.colored_symbol)
 
       toggle_player_turn
-      display
       break if game_over?
     end
-
-    display
   end
 
   def start
     loop do
-      board.reset
       play_round
       print 'Play again(y/n): '
       break unless gets.chomp.downcase == 'y'
+
+      reset
     end
   end
 
@@ -167,8 +179,5 @@ class Game
     help
     display_scores
     board.draw
-  end
-
-  def save
   end
 end

@@ -90,17 +90,16 @@ describe Game do
       allow(my_player).to receive(:score=)
       allow(my_game).to receive(:players).and_return([my_player])
       allow(my_game).to receive(:puts)
-      # allow(my_player).to receive(:score)
-      
+      allow(my_game).to receive(:display)
     end
-    
+
     it 'declares winner' do
       win_statement = 'PlayerX WINS!'
-      
+
       expect(my_game).to receive(:puts).with(win_statement)
       my_game.declare_winner('@')
     end
-    
+
     it 'adds 1 score to the winner' do
       expect(my_player).to receive(:score=).with(1)
       my_game.declare_winner('@')
@@ -110,21 +109,21 @@ describe Game do
   describe '#check_neighbor' do
     it 'returns number of connected pieces ' \
             'in given direction' do
-        my_board = my_game.board
-        my_board.create_positions
+      my_board = my_game.board
+      my_board.create_positions
 
-        row_elements = [[2, 3], [3, 3], [4, 3], [5, 3]]
-        row_elements.each do |coordinates|
-          position = my_board.fetch(coordinates)
-          position.fill('x')
-        end
-        my_position = my_board.fetch([4, 3])
+      row_elements = [[2, 3], [3, 3], [4, 3], [5, 3]]
+      row_elements.each do |coordinates|
+        position = my_board.fetch(coordinates)
+        position.fill('x')
+      end
+      my_position = my_board.fetch([4, 3])
 
-        direction = [-1, 0]
-        expect(my_game.check_neighbor(my_position, direction)).to eq(2)
+      direction = [-1, 0]
+      expect(my_game.check_neighbor(my_position, direction)).to eq(2)
 
-        direction = [1, 0]
-        expect(my_game.check_neighbor(my_position, direction)).to eq(1)
+      direction = [1, 0]
+      expect(my_game.check_neighbor(my_position, direction)).to eq(1)
     end
   end
 
@@ -179,7 +178,7 @@ describe Game do
     before do
       allow(my_game).to receive(:display)
     end
-    
+
     it 'breaks the loop when pressed enter' do
       allow($stdin).to receive(:getch).and_return("\r")
       my_game.handle_input
