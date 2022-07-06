@@ -22,7 +22,7 @@ class Game
 
   def set_current_player(player)
     @current_player = player
-    board.next_symbol = player.colored_symbol
+    board.next_symbol = player.piece
   end
 
   def choose_symbol
@@ -44,12 +44,16 @@ class Game
     COLORS.fetch(choice, COLORS.sample)
   end
 
+  def player_name(player_number)
+    puts "Player##{player_number + 1}"
+    print '  Enter player name>> '
+    gets.chomp
+  end
+
   def add_players
     2.times do |i|
-      puts "Player##{i + 1}"
-      print '  Enter player name>> '
-      name = gets.chomp
-      symbol = String(choose_symbol)
+      name = player_name(i)
+      symbol = choose_symbol
       color = choose_color
       add_player(name, symbol, color)
     end
@@ -67,59 +71,76 @@ class Game
 
   def declare_winner(symbol)
     players.each do |player|
-      next unless player.colored_symbol == symbol
+      next unless player.piece == symbol
 
       player.score += 1
       display
-      puts "#{player.name} WINS!"
+      puts player.win_statement
       break
     end
   end
 
-  def check_neighbor(position, direction)
+  def count_neighbors(position, direction)
     next_coordinates = position.coordinates.zip(direction).map(&:sum)
     next_position = board.fetch(next_coordinates)
     return 0 if next_position.nil?
     return 0 if position.value != next_position.value
 
-    1 + check_neighbor(next_position, direction)
+    1 + count_neighbors(next_position, direction)
+  end
+
+  def connected(position, direction)
+    backward_direction = direction.map(&:-@)
+    count_neighbors(position, direction) +
+      1 +
+      count_neighbors(position, backward_direction)
+  end
+
+  def game_draw?
+    board.positions.each do |position|
+      return false if position.empty?
+    end
+    puts 'GAME IS DRAW!'
+    true
+  end
+
+  def game_won?
+    last_position = board.last_position
+    DIRECTIONS.each_value do |direction|
+      next if connected(last_position, direction) < 4
+
+      declare_winner(last_position.value)
+      return true
+    end
+    false
   end
 
   def game_over?
-    last_position = board.last_position
-    DIRECTIONS.each_value do |value|
-      forward, backward = value
-      connected = check_neighbor(last_position, forward) +
-                  1 +
-                  check_neighbor(last_position, backward)
-      if connected >= 4
-        declare_winner(last_position.value)
-        return true
-      end
+    game_draw? || game_won?
+  end
+
+  def handle_escaped_input
+    case $stdin.getch
+    when 'D' then board.change_column(-1)
+    when 'C' then board.change_column(1)
+    end
+    display
+    false
+  end
+
+  def handle_command_input
+    case $stdin.getch
+    when 'q' then exit
+    when 's' then save_game
     end
     false
   end
 
   def handle_input
-    loop do
-      case $stdin.getch
-      when "\r"
-        return true
-      when '['
-        case $stdin.getch
-        when 'D' then board.change_column(-1)
-        when 'C' then board.change_column(1)
-        end
-        display
-      when '/'
-        case $stdin.getch
-        when 'q' then exit
-        when 's'
-          save_game
-          return false
-        end
-      end
-      # display
+    case $stdin.getch
+    when "\r" then true
+    when '[' then handle_escaped_input
+    when '/' then handle_command_input
     end
   end
 
@@ -135,25 +156,28 @@ class Game
 
   def play_round
     game_setup if players.empty?
+    display
 
     loop do
-      display
-      next unless handle_input
-      next unless board.drop(current_player.colored_symbol)
+      next until handle_input
+      next unless board.drop(current_player.piece)
 
       toggle_player_turn
+      display
       break if game_over?
     end
   end
 
-  def start
-    loop do
-      play_round
-      print 'Play again(y/n): '
-      break unless gets.chomp.downcase == 'y'
+  def play_again?
+    print 'Play again(y/n): '
+    gets.chomp.downcase == 'y'
+  end
 
-      reset
-    end
+  def start
+    play_round
+    reset
+
+    start if play_again?
   end
 
   def help
@@ -167,7 +191,7 @@ class Game
   def display_scores
     players.each do |player|
       print player.name
-      print "(#{player.colored_symbol}): "
+      print "(#{player.piece}): "
       print player.score
       print '    '
     end

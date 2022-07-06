@@ -11,11 +11,11 @@ class Player
     @score = 0
   end
 
-  def colored_symbol
-    %i[red green blue yellow].each do |available_color|
-      return symbol.send(color) if
-        String(color) == String(available_color)
-    end
-    symbol
+  def piece
+    symbol.send(color)
+  end
+
+  def win_statement
+    "#{name}(#{piece}) WINS!"
   end
 end

@@ -1,5 +1,5 @@
 ---
-file1: !ruby/object:Game
+game1: !ruby/object:Game
   board: !ruby/object:Board
     rows: 8
     columns: 8
@@ -144,173 +144,173 @@ file1: !ruby/object:Game
       coordinates:
       - 4
       - 4
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 5
-      - 4
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 6
-      - 4
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 7
-      - 4
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 8
-      - 4
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 1
-      - 5
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 2
-      - 5
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 3
-      - 5
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 4
-      - 5
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 5
-      - 5
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 6
-      - 5
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 7
-      - 5
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 8
-      - 5
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 1
-      - 6
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 2
-      - 6
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 3
-      - 6
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 4
-      - 6
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 5
-      - 6
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 6
-      - 6
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 7
-      - 6
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 8
-      - 6
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 1
-      - 7
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 2
-      - 7
-    - !ruby/object:Position
-      value: "\e[33m●\e[0m"
-      coordinates:
-      - 3
-      - 7
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 4
-      - 7
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 5
-      - 7
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 6
-      - 7
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 7
-      - 7
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 8
-      - 7
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 1
-      - 8
-    - !ruby/object:Position
-      value: "\e[33m●\e[0m"
-      coordinates:
-      - 2
-      - 8
-    - !ruby/object:Position
-      value: "\e[32m☡\e[0m"
-      coordinates:
-      - 3
-      - 8
-    - !ruby/object:Position
-      value: "\e[32m☡\e[0m"
-      coordinates:
-      - 4
-      - 8
-    - !ruby/object:Position
-      value: "\e[33m●\e[0m"
-      coordinates:
-      - 5
-      - 8
     - &1 !ruby/object:Position
-      value: "\e[32m☡\e[0m"
+      value: "\e[32m●\e[0m"
+      coordinates:
+      - 5
+      - 4
+    - !ruby/object:Position
+      value: " "
+      coordinates:
+      - 6
+      - 4
+    - !ruby/object:Position
+      value: " "
+      coordinates:
+      - 7
+      - 4
+    - !ruby/object:Position
+      value: " "
+      coordinates:
+      - 8
+      - 4
+    - !ruby/object:Position
+      value: " "
+      coordinates:
+      - 1
+      - 5
+    - !ruby/object:Position
+      value: " "
+      coordinates:
+      - 2
+      - 5
+    - !ruby/object:Position
+      value: "\e[32m●\e[0m"
+      coordinates:
+      - 3
+      - 5
+    - !ruby/object:Position
+      value: " "
+      coordinates:
+      - 4
+      - 5
+    - !ruby/object:Position
+      value: "\e[34m●\e[0m"
+      coordinates:
+      - 5
+      - 5
+    - !ruby/object:Position
+      value: " "
+      coordinates:
+      - 6
+      - 5
+    - !ruby/object:Position
+      value: " "
+      coordinates:
+      - 7
+      - 5
+    - !ruby/object:Position
+      value: " "
+      coordinates:
+      - 8
+      - 5
+    - !ruby/object:Position
+      value: " "
+      coordinates:
+      - 1
+      - 6
+    - !ruby/object:Position
+      value: " "
+      coordinates:
+      - 2
+      - 6
+    - !ruby/object:Position
+      value: "\e[34m●\e[0m"
+      coordinates:
+      - 3
+      - 6
+    - !ruby/object:Position
+      value: "\e[32m●\e[0m"
+      coordinates:
+      - 4
+      - 6
+    - !ruby/object:Position
+      value: "\e[34m●\e[0m"
+      coordinates:
+      - 5
+      - 6
+    - !ruby/object:Position
+      value: " "
+      coordinates:
+      - 6
+      - 6
+    - !ruby/object:Position
+      value: " "
+      coordinates:
+      - 7
+      - 6
+    - !ruby/object:Position
+      value: " "
+      coordinates:
+      - 8
+      - 6
+    - !ruby/object:Position
+      value: " "
+      coordinates:
+      - 1
+      - 7
+    - !ruby/object:Position
+      value: " "
+      coordinates:
+      - 2
+      - 7
+    - !ruby/object:Position
+      value: "\e[32m●\e[0m"
+      coordinates:
+      - 3
+      - 7
+    - !ruby/object:Position
+      value: "\e[32m●\e[0m"
+      coordinates:
+      - 4
+      - 7
+    - !ruby/object:Position
+      value: "\e[34m●\e[0m"
+      coordinates:
+      - 5
+      - 7
+    - !ruby/object:Position
+      value: " "
+      coordinates:
+      - 6
+      - 7
+    - !ruby/object:Position
+      value: " "
+      coordinates:
+      - 7
+      - 7
+    - !ruby/object:Position
+      value: " "
+      coordinates:
+      - 8
+      - 7
+    - !ruby/object:Position
+      value: " "
+      coordinates:
+      - 1
+      - 8
+    - !ruby/object:Position
+      value: "\e[32m●\e[0m"
+      coordinates:
+      - 2
+      - 8
+    - !ruby/object:Position
+      value: "\e[34m●\e[0m"
+      coordinates:
+      - 3
+      - 8
+    - !ruby/object:Position
+      value: "\e[34m●\e[0m"
+      coordinates:
+      - 4
+      - 8
+    - !ruby/object:Position
+      value: "\e[32m●\e[0m"
+      coordinates:
+      - 5
+      - 8
+    - !ruby/object:Position
+      value: "\e[34m●\e[0m"
       coordinates:
       - 6
       - 8
@@ -320,26 +320,26 @@ file1: !ruby/object:Game
       - 7
       - 8
     - !ruby/object:Position
-      value: " "
+      value: "\e[32m●\e[0m"
       coordinates:
       - 8
       - 8
     last_position: *1
-    current_column: 6
-    next_symbol: "\e[33m●\e[0m"
+    current_column: 5
+    next_symbol: "\e[34m●\e[0m"
   players:
-  - !ruby/object:Player
-    name: player1
-    symbol: "☡"
-    color: :green
-    score: 1
   - &2 !ruby/object:Player
-    name: player22
+    name: player1
     symbol: "●"
-    color: :yellow
+    color: :blue
+    score: 1
+  - !ruby/object:Player
+    name: '3'
+    symbol: "●"
+    color: :green
     score: 0
   current_player: *2
-file2: !ruby/object:Game
+game2: !ruby/object:Game
   board: !ruby/object:Board
     rows: 8
     columns: 8
@@ -485,7 +485,7 @@ file2: !ruby/object:Game
       - 4
       - 4
     - !ruby/object:Position
-      value: "\e[33m●\e[0m"
+      value: " "
       coordinates:
       - 5
       - 4
@@ -518,19 +518,19 @@ file2: !ruby/object:Game
       value: " "
       coordinates:
       - 3
-      - 5
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 4
-      - 5
-    - !ruby/object:Position
-      value: "\e[32m☡\e[0m"
-      coordinates:
-      - 5
       - 5
     - &3 !ruby/object:Position
-      value: "\e[32m☡\e[0m"
+      value: "\e[33m⚒\e[0m"
+      coordinates:
+      - 4
+      - 5
+    - !ruby/object:Position
+      value: " "
+      coordinates:
+      - 5
+      - 5
+    - !ruby/object:Position
+      value: " "
       coordinates:
       - 6
       - 5
@@ -565,17 +565,17 @@ file2: !ruby/object:Game
       - 4
       - 6
     - !ruby/object:Position
-      value: "\e[33m●\e[0m"
+      value: "\e[33m⚒\e[0m"
       coordinates:
       - 5
       - 6
     - !ruby/object:Position
-      value: "\e[33m●\e[0m"
+      value: "\e[32m☡\e[0m"
       coordinates:
       - 6
       - 6
     - !ruby/object:Position
-      value: "\e[32m☡\e[0m"
+      value: " "
       coordinates:
       - 7
       - 6
@@ -595,12 +595,12 @@ file2: !ruby/object:Game
       - 2
       - 7
     - !ruby/object:Position
-      value: "\e[33m●\e[0m"
+      value: " "
       coordinates:
       - 3
       - 7
     - !ruby/object:Position
-      value: "\e[33m●\e[0m"
+      value: "\e[33m⚒\e[0m"
       coordinates:
       - 4
       - 7
@@ -610,12 +610,12 @@ file2: !ruby/object:Game
       - 5
       - 7
     - !ruby/object:Position
-      value: "\e[33m●\e[0m"
+      value: "\e[33m⚒\e[0m"
       coordinates:
       - 6
       - 7
     - !ruby/object:Position
-      value: "\e[33m●\e[0m"
+      value: " "
       coordinates:
       - 7
       - 7
@@ -630,7 +630,7 @@ file2: !ruby/object:Game
       - 1
       - 8
     - !ruby/object:Position
-      value: "\e[33m●\e[0m"
+      value: " "
       coordinates:
       - 2
       - 8
@@ -645,12 +645,12 @@ file2: !ruby/object:Game
       - 4
       - 8
     - !ruby/object:Position
-      value: "\e[33m●\e[0m"
+      value: "\e[33m⚒\e[0m"
       coordinates:
       - 5
       - 8
     - !ruby/object:Position
-      value: "\e[32m☡\e[0m"
+      value: "\e[33m⚒\e[0m"
       coordinates:
       - 6
       - 8
@@ -665,307 +665,307 @@ file2: !ruby/object:Game
       - 8
       - 8
     last_position: *3
-    current_column: 6
-    next_symbol: "\e[33m●\e[0m"
+    current_column: 4
+    next_symbol: "\e[32m☡\e[0m"
   players:
   - !ruby/object:Player
-    name: player1
-    symbol: "☡"
-    color: :green
-    score: 1
-  - &4 !ruby/object:Player
-    name: player22
-    symbol: "●"
+    name: player
+    symbol: "⚒"
     color: :yellow
     score: 0
+  - &4 !ruby/object:Player
+    name: bot
+    symbol: "☡"
+    color: :green
+    score: 0
   current_player: *4
-file3: !ruby/object:Game
+drawgame: !ruby/object:Game
   board: !ruby/object:Board
     rows: 8
     columns: 8
     positions:
     - !ruby/object:Position
-      value: " "
+      value: "\e[31m♦\e[0m"
       coordinates:
       - 1
       - 1
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 2
-      - 1
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 3
-      - 1
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 4
-      - 1
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 5
-      - 1
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 6
-      - 1
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 7
-      - 1
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 8
-      - 1
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 1
-      - 2
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 2
-      - 2
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 3
-      - 2
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 4
-      - 2
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 5
-      - 2
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 6
-      - 2
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 7
-      - 2
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 8
-      - 2
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 1
-      - 3
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 2
-      - 3
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 3
-      - 3
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 4
-      - 3
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 5
-      - 3
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 6
-      - 3
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 7
-      - 3
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 8
-      - 3
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 1
-      - 4
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 2
-      - 4
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 3
-      - 4
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 4
-      - 4
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 5
-      - 4
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 6
-      - 4
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 7
-      - 4
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 8
-      - 4
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 1
-      - 5
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 2
-      - 5
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 3
-      - 5
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 4
-      - 5
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 5
-      - 5
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 6
-      - 5
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 7
-      - 5
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 8
-      - 5
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 1
-      - 6
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 2
-      - 6
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 3
-      - 6
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 4
-      - 6
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 5
-      - 6
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 6
-      - 6
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 7
-      - 6
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 8
-      - 6
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 1
-      - 7
     - &5 !ruby/object:Position
-      value: "\e[33m●\e[0m"
+      value: "\e[32m☡\e[0m"
       coordinates:
       - 2
-      - 7
+      - 1
     - !ruby/object:Position
       value: " "
       coordinates:
       - 3
-      - 7
+      - 1
     - !ruby/object:Position
       value: " "
       coordinates:
       - 4
+      - 1
+    - !ruby/object:Position
+      value: "\e[31m♦\e[0m"
+      coordinates:
+      - 5
+      - 1
+    - !ruby/object:Position
+      value: "\e[32m☡\e[0m"
+      coordinates:
+      - 6
+      - 1
+    - !ruby/object:Position
+      value: "\e[31m♦\e[0m"
+      coordinates:
+      - 7
+      - 1
+    - !ruby/object:Position
+      value: "\e[32m☡\e[0m"
+      coordinates:
+      - 8
+      - 1
+    - !ruby/object:Position
+      value: "\e[31m♦\e[0m"
+      coordinates:
+      - 1
+      - 2
+    - !ruby/object:Position
+      value: "\e[32m☡\e[0m"
+      coordinates:
+      - 2
+      - 2
+    - !ruby/object:Position
+      value: "\e[31m♦\e[0m"
+      coordinates:
+      - 3
+      - 2
+    - !ruby/object:Position
+      value: "\e[32m☡\e[0m"
+      coordinates:
+      - 4
+      - 2
+    - !ruby/object:Position
+      value: "\e[31m♦\e[0m"
+      coordinates:
+      - 5
+      - 2
+    - !ruby/object:Position
+      value: "\e[32m☡\e[0m"
+      coordinates:
+      - 6
+      - 2
+    - !ruby/object:Position
+      value: "\e[31m♦\e[0m"
+      coordinates:
+      - 7
+      - 2
+    - !ruby/object:Position
+      value: "\e[32m☡\e[0m"
+      coordinates:
+      - 8
+      - 2
+    - !ruby/object:Position
+      value: "\e[32m☡\e[0m"
+      coordinates:
+      - 1
+      - 3
+    - !ruby/object:Position
+      value: "\e[31m♦\e[0m"
+      coordinates:
+      - 2
+      - 3
+    - !ruby/object:Position
+      value: "\e[32m☡\e[0m"
+      coordinates:
+      - 3
+      - 3
+    - !ruby/object:Position
+      value: "\e[31m♦\e[0m"
+      coordinates:
+      - 4
+      - 3
+    - !ruby/object:Position
+      value: "\e[32m☡\e[0m"
+      coordinates:
+      - 5
+      - 3
+    - !ruby/object:Position
+      value: "\e[31m♦\e[0m"
+      coordinates:
+      - 6
+      - 3
+    - !ruby/object:Position
+      value: "\e[32m☡\e[0m"
+      coordinates:
+      - 7
+      - 3
+    - !ruby/object:Position
+      value: "\e[31m♦\e[0m"
+      coordinates:
+      - 8
+      - 3
+    - !ruby/object:Position
+      value: "\e[32m☡\e[0m"
+      coordinates:
+      - 1
+      - 4
+    - !ruby/object:Position
+      value: "\e[31m♦\e[0m"
+      coordinates:
+      - 2
+      - 4
+    - !ruby/object:Position
+      value: "\e[32m☡\e[0m"
+      coordinates:
+      - 3
+      - 4
+    - !ruby/object:Position
+      value: "\e[31m♦\e[0m"
+      coordinates:
+      - 4
+      - 4
+    - !ruby/object:Position
+      value: "\e[32m☡\e[0m"
+      coordinates:
+      - 5
+      - 4
+    - !ruby/object:Position
+      value: "\e[31m♦\e[0m"
+      coordinates:
+      - 6
+      - 4
+    - !ruby/object:Position
+      value: "\e[32m☡\e[0m"
+      coordinates:
+      - 7
+      - 4
+    - !ruby/object:Position
+      value: "\e[31m♦\e[0m"
+      coordinates:
+      - 8
+      - 4
+    - !ruby/object:Position
+      value: "\e[32m☡\e[0m"
+      coordinates:
+      - 1
+      - 5
+    - !ruby/object:Position
+      value: "\e[31m♦\e[0m"
+      coordinates:
+      - 2
+      - 5
+    - !ruby/object:Position
+      value: "\e[32m☡\e[0m"
+      coordinates:
+      - 3
+      - 5
+    - !ruby/object:Position
+      value: "\e[31m♦\e[0m"
+      coordinates:
+      - 4
+      - 5
+    - !ruby/object:Position
+      value: "\e[32m☡\e[0m"
+      coordinates:
+      - 5
+      - 5
+    - !ruby/object:Position
+      value: "\e[31m♦\e[0m"
+      coordinates:
+      - 6
+      - 5
+    - !ruby/object:Position
+      value: "\e[32m☡\e[0m"
+      coordinates:
+      - 7
+      - 5
+    - !ruby/object:Position
+      value: "\e[31m♦\e[0m"
+      coordinates:
+      - 8
+      - 5
+    - !ruby/object:Position
+      value: "\e[31m♦\e[0m"
+      coordinates:
+      - 1
+      - 6
+    - !ruby/object:Position
+      value: "\e[32m☡\e[0m"
+      coordinates:
+      - 2
+      - 6
+    - !ruby/object:Position
+      value: "\e[31m♦\e[0m"
+      coordinates:
+      - 3
+      - 6
+    - !ruby/object:Position
+      value: "\e[32m☡\e[0m"
+      coordinates:
+      - 4
+      - 6
+    - !ruby/object:Position
+      value: "\e[31m♦\e[0m"
+      coordinates:
+      - 5
+      - 6
+    - !ruby/object:Position
+      value: "\e[32m☡\e[0m"
+      coordinates:
+      - 6
+      - 6
+    - !ruby/object:Position
+      value: "\e[31m♦\e[0m"
+      coordinates:
+      - 7
+      - 6
+    - !ruby/object:Position
+      value: "\e[32m☡\e[0m"
+      coordinates:
+      - 8
+      - 6
+    - !ruby/object:Position
+      value: "\e[31m♦\e[0m"
+      coordinates:
+      - 1
       - 7
     - !ruby/object:Position
-      value: " "
+      value: "\e[32m☡\e[0m"
+      coordinates:
+      - 2
+      - 7
+    - !ruby/object:Position
+      value: "\e[31m♦\e[0m"
+      coordinates:
+      - 3
+      - 7
+    - !ruby/object:Position
+      value: "\e[32m☡\e[0m"
+      coordinates:
+      - 4
+      - 7
+    - !ruby/object:Position
+      value: "\e[31m♦\e[0m"
       coordinates:
       - 5
       - 7
     - !ruby/object:Position
-      value: " "
+      value: "\e[32m☡\e[0m"
       coordinates:
       - 6
       - 7
     - !ruby/object:Position
-      value: " "
+      value: "\e[31m♦\e[0m"
       coordinates:
       - 7
       - 7
     - !ruby/object:Position
-      value: " "
+      value: "\e[32m☡\e[0m"
       coordinates:
       - 8
       - 7
     - !ruby/object:Position
-      value: " "
+      value: "\e[31m♦\e[0m"
       coordinates:
       - 1
       - 8
@@ -975,387 +975,47 @@ file3: !ruby/object:Game
       - 2
       - 8
     - !ruby/object:Position
-      value: " "
+      value: "\e[31m♦\e[0m"
       coordinates:
       - 3
       - 8
     - !ruby/object:Position
-      value: " "
+      value: "\e[32m☡\e[0m"
       coordinates:
       - 4
       - 8
     - !ruby/object:Position
-      value: " "
+      value: "\e[31m♦\e[0m"
       coordinates:
       - 5
       - 8
     - !ruby/object:Position
-      value: " "
+      value: "\e[32m☡\e[0m"
       coordinates:
       - 6
       - 8
     - !ruby/object:Position
-      value: " "
+      value: "\e[31m♦\e[0m"
       coordinates:
       - 7
       - 8
     - !ruby/object:Position
-      value: " "
+      value: "\e[32m☡\e[0m"
       coordinates:
       - 8
       - 8
     last_position: *5
     current_column: 2
-    next_symbol: "\e[32m☡\e[0m"
+    next_symbol: "\e[31m♦\e[0m"
   players:
   - &6 !ruby/object:Player
-    name: player1
-    symbol: "☡"
-    color: :green
-    score: 1
-  - !ruby/object:Player
-    name: player22
-    symbol: "●"
-    color: :yellow
-    score: 1
-  current_player: *6
-bots: !ruby/object:Game
-  board: !ruby/object:Board
-    rows: 8
-    columns: 8
-    positions:
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 1
-      - 1
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 2
-      - 1
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 3
-      - 1
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 4
-      - 1
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 5
-      - 1
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 6
-      - 1
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 7
-      - 1
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 8
-      - 1
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 1
-      - 2
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 2
-      - 2
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 3
-      - 2
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 4
-      - 2
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 5
-      - 2
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 6
-      - 2
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 7
-      - 2
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 8
-      - 2
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 1
-      - 3
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 2
-      - 3
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 3
-      - 3
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 4
-      - 3
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 5
-      - 3
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 6
-      - 3
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 7
-      - 3
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 8
-      - 3
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 1
-      - 4
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 2
-      - 4
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 3
-      - 4
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 4
-      - 4
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 5
-      - 4
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 6
-      - 4
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 7
-      - 4
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 8
-      - 4
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 1
-      - 5
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 2
-      - 5
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 3
-      - 5
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 4
-      - 5
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 5
-      - 5
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 6
-      - 5
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 7
-      - 5
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 8
-      - 5
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 1
-      - 6
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 2
-      - 6
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 3
-      - 6
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 4
-      - 6
-    - !ruby/object:Position
-      value: "\e[34m☢\e[0m"
-      coordinates:
-      - 5
-      - 6
-    - !ruby/object:Position
-      value: "\e[31m☢\e[0m"
-      coordinates:
-      - 6
-      - 6
-    - &7 !ruby/object:Position
-      value: "\e[34m☢\e[0m"
-      coordinates:
-      - 7
-      - 6
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 8
-      - 6
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 1
-      - 7
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 2
-      - 7
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 3
-      - 7
-    - !ruby/object:Position
-      value: "\e[34m☢\e[0m"
-      coordinates:
-      - 4
-      - 7
-    - !ruby/object:Position
-      value: "\e[31m☢\e[0m"
-      coordinates:
-      - 5
-      - 7
-    - !ruby/object:Position
-      value: "\e[34m☢\e[0m"
-      coordinates:
-      - 6
-      - 7
-    - !ruby/object:Position
-      value: "\e[34m☢\e[0m"
-      coordinates:
-      - 7
-      - 7
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 8
-      - 7
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 1
-      - 8
-    - !ruby/object:Position
-      value: " "
-      coordinates:
-      - 2
-      - 8
-    - !ruby/object:Position
-      value: "\e[34m☢\e[0m"
-      coordinates:
-      - 3
-      - 8
-    - !ruby/object:Position
-      value: "\e[31m☢\e[0m"
-      coordinates:
-      - 4
-      - 8
-    - !ruby/object:Position
-      value: "\e[31m☢\e[0m"
-      coordinates:
-      - 5
-      - 8
-    - !ruby/object:Position
-      value: "\e[34m☢\e[0m"
-      coordinates:
-      - 6
-      - 8
-    - !ruby/object:Position
-      value: "\e[31m☢\e[0m"
-      coordinates:
-      - 7
-      - 8
-    - !ruby/object:Position
-      value: "\e[31m☢\e[0m"
-      coordinates:
-      - 8
-      - 8
-    last_position: *7
-    current_column: 7
-    next_symbol: "\e[31m☢\e[0m"
-  players:
-  - &8 !ruby/object:Player
-    name: Bot1
-    symbol: "☢"
+    name: pp
+    symbol: "♦"
     color: :red
     score: 0
   - !ruby/object:Player
-    name: Bot2
-    symbol: "☢"
-    color: :blue
+    name: ll
+    symbol: "☡"
+    color: :green
     score: 0
-  current_player: *8
+  current_player: *6

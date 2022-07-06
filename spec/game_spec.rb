@@ -5,7 +5,7 @@ include Constants
 
 describe Game do
   subject(:my_game) { described_class.new }
-  let(:my_player) { double(Player, name: 'PlayerX', colored_symbol: '@', score: 0) }
+  let(:my_player) { double(Player, name: 'PlayerX', piece: '@', score: 0, win_statement: nil) }
 
   describe '#add_player' do
     it 'creates new player object with given name, symbol, color' do
@@ -28,7 +28,7 @@ describe Game do
 
     it 'sends :next_symbol= to the board' do
       my_board = my_game.board
-      symbol = my_player.colored_symbol
+      symbol = my_player.piece
       expect(my_board).to receive(:next_symbol=).with(symbol).once
       my_game.set_current_player(my_player)
     end
@@ -93,10 +93,8 @@ describe Game do
       allow(my_game).to receive(:display)
     end
 
-    it 'declares winner' do
-      win_statement = 'PlayerX WINS!'
-
-      expect(my_game).to receive(:puts).with(win_statement)
+    it 'sends :win_statement to winner' do
+      expect(my_player).to receive(:win_statement)
       my_game.declare_winner('@')
     end
 
@@ -106,7 +104,7 @@ describe Game do
     end
   end
 
-  describe '#check_neighbor' do
+  describe '#count_neighbors' do
     it 'returns number of connected pieces ' \
             'in given direction' do
       my_board = my_game.board
@@ -120,10 +118,10 @@ describe Game do
       my_position = my_board.fetch([4, 3])
 
       direction = [-1, 0]
-      expect(my_game.check_neighbor(my_position, direction)).to eq(2)
+      expect(my_game.count_neighbors(my_position, direction)).to eq(2)
 
       direction = [1, 0]
-      expect(my_game.check_neighbor(my_position, direction)).to eq(1)
+      expect(my_game.count_neighbors(my_position, direction)).to eq(1)
     end
   end
 
@@ -179,17 +177,40 @@ describe Game do
       allow(my_game).to receive(:display)
     end
 
-    it 'breaks the loop when pressed enter' do
+    it 'returns true when pressed enter' do
       allow($stdin).to receive(:getch).and_return("\r")
+      expect(my_game.handle_input).to eq(true)
+    end
+
+    context 'when left key is pressed' do
+      it 'sends :change_column to the board with "-1" as argument' do
+        allow($stdin).to receive(:getch).and_return('[', 'D')
+
+        expect(my_game.board).to receive(:change_column).with(-1).once
+        my_game.handle_input
+      end
+    end
+
+    context 'when right key is pressed' do
+      it 'sends :change_column to the board with "1" as argument' do
+        allow($stdin).to receive(:getch).and_return('[', 'C')
+
+        expect(my_game.board).to receive(:change_column).with(1).once
+        my_game.handle_input
+      end
+    end
+
+    it 'sends :save_game to the game when "/s" is pressed' do
+      allow($stdin).to receive(:getch).and_return('/', 's')
+
+      expect(my_game).to receive(:save_game).once
       my_game.handle_input
     end
 
-    it 'sends :change_column to board when pressed left/right arrows' do
-      allow($stdin).to receive(:getch).and_return('[', 'D', '[', 'C', '[', 'D', "\r")
-      my_board = my_game.board
+    it 'sends :exit to the game when "/q" is pressed' do
+      allow($stdin).to receive(:getch).and_return('/', 'q')
 
-      expect(my_board).to receive(:change_column).with(-1).twice
-      expect(my_board).to receive(:change_column).with(1).once
+      expect(my_game).to receive(:exit).once
       my_game.handle_input
     end
   end

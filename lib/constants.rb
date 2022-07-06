@@ -3,11 +3,11 @@
 module Constants
   ROWS = 8
   COLUMNS = 8
-  COLORS = %i[red blue green yellow]
-  DIRECTIONS = { row: [[-1, 0], [1, 0]],
-                 column: [[0, -1], [0, 1]],
-                 diagonal1: [[1, 1], [-1, -1]],
-                 diagonal2: [[-1, 1], [1, -1]] }.freeze
+  COLORS = %i[red blue green yellow].freeze
+  DIRECTIONS = { row: [1, 0],
+                 column: [0, 1],
+                 diagonal1: [1, 1],
+                 diagonal2: [1, -1] }.freeze
 end
 
 module BoxBuilders
@@ -47,7 +47,7 @@ class String
 end
 
 module Symbols
-  EMPTY = ' '  # "\u25ef"
+  EMPTY = ' '
   PIECES = {
     circle: "\u25cf",
     solar_symbol: "\u2600",

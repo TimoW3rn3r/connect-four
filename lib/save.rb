@@ -1,15 +1,16 @@
+# frozen_string_literal: true
+
 require 'yaml'
 
 module Save
   SAVE_FILE = 'saved.yaml'
 
   def read_saved_games
-    begin
-      YAML.load(File.read(SAVE_FILE), aliases: true,
-                permitted_classes: [Game, Board, Position, Player, Symbol])
-    rescue Errno::ENOENT
-      {}
-    end
+    YAML.safe_load(File.read(SAVE_FILE),
+                   aliases: true,
+                   permitted_classes: [Game, Board, Position, Player, Symbol])
+  rescue Errno::ENOENT
+    {}
   end
 
   def save_game
@@ -17,7 +18,7 @@ module Save
     print 'Enter save name: '
     name = gets.chomp
     saved[name] = self
-    File.open(SAVE_FILE,'w') do |file|
+    File.open(SAVE_FILE, 'w') do |file|
       file.puts YAML.dump(saved)
     end
     puts "Saved under '#{name}'"

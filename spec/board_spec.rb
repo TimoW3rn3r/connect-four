@@ -31,12 +31,12 @@ describe Board do
 
   describe '#change_column' do
     it 'shifts the column by given value' do
-      expect{my_board.change_column(1)}.to change{my_board.current_column}.by(1)
+      expect { my_board.change_column(1) }.to change { my_board.current_column }.by(1)
     end
 
     it 'works with negative value' do
       my_board.instance_variable_set(:@current_column, 5)
-      expect{my_board.change_column(-1)}.to change{my_board.current_column}.by(-1)
+      expect { my_board.change_column(-1) }.to change { my_board.current_column }.by(-1)
     end
 
     it 'wraps the value between 1 and maximum columns' do
@@ -58,6 +58,7 @@ describe Board do
 
     it 'returns false when the column is full' do
       allow(my_board).to receive(:current_column).and_return(3)
+      allow(my_board).to receive(:puts)
 
       # fill the column
       7.times do
